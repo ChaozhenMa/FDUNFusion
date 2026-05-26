@@ -1,0 +1,13 @@
+# Core ML Framework
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Computation & Array Operations
+numpy>=1.21.0
+
+# Image Processing
+Pillow>=9.0.0
+
+# Visualization & Logging
+matplotlib>=3.5.0
+tqdm>=4.60.0
