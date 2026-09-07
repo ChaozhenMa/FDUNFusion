@@ -137,7 +137,7 @@ class CombinedFusionLoss(nn.Module):
         W1, W2 = weights[:, 0:1], weights[:, 1:2]
         self._init_gradient_calc(fused.device)
 
-        intensity_loss = (W1 * (fused - V) ** 2 + W2 * (fused - U) ** 2).mean()
+        intensity_loss = (W1 * (fused - U) ** 2 + W2 * (fused - V) ** 2).mean()
 
         _, _, grad_fused = self.gradient_calc.compute_gradient(fused)
         _, _, grad_U = self.gradient_calc.compute_gradient(U)
