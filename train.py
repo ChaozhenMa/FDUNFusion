@@ -186,11 +186,13 @@ def custom_collate_fn(batch):
 
 
 def main():
+    default_model_config = get_model_config()
+    default_train_config = get_train_config()
     parser = argparse.ArgumentParser(description='FDUNFusion Training Script')
-    parser.add_argument('--order', type=float, default=0.1, help='Fractional order (default: 0.1, corresponds to low-frequency components)')
-    parser.add_argument('--lambda_init', type=float, default=0.9, help='Physical prior initialization parameter Lambda')
-    parser.add_argument('--beta_init', type=float, default=0.3, help='Physical prior initialization parameter Beta')
-    parser.add_argument('--batch_size', type=int, default=8, help='Training batch size')
+    parser.add_argument('--order', type=float, default=default_model_config['order'], help='Fractional order (default: config.py)')
+    parser.add_argument('--lambda_init', type=float, default=default_model_config['lambda_init'], help='Lambda initialization (default: config.py)')
+    parser.add_argument('--beta_init', type=float, default=default_model_config['beta_init'], help='Beta initialization (default: config.py)')
+    parser.add_argument('--batch_size', type=int, default=default_train_config['batch_size'], help='Training batch size (default: config.py)')
     parser.add_argument('--force-retrain', action='store_true', help='Ignore existing final model, force retraining')
     args = parser.parse_args()
 
