@@ -8,7 +8,7 @@ from torchvision import transforms
 import os
 from PIL import Image
 import warnings
-from tqdm import tqdm  # ✅ 新增：导入进度条工具
+from tqdm import tqdm 
 
 from config import get_model_config, get_path_config, initialize_directories, print_experiment_info
 from dataset import InfraredVisibleDataset
